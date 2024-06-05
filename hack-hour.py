@@ -1,4 +1,3 @@
-import rp2
 import display
 
 import secrets
@@ -18,12 +17,9 @@ while not wifi.isconnected():
     display.displayLED(loadingAnimation[itemCounter], 0.25)
     itemCounter = (itemCounter + 1) % len(loadingAnimation)
 
-# Display the IP address
-display.displayLED(wifi.ifconfig()[0], 3)
+# Display the IP address scrolling
+print(wifi.ifconfig()[0])
 
-# wait until the button on the pico is pressed
-while rp2.bootsel_button() == 0:
-    display.displayLED("AAAA", 0.5)
+display.displayLED("C00D", 0.5)
 
-display.displayLED("    ", 0.5)
-# start the hack hour
+# start listening for the hack hour from https://hackhour-9870d80cb898.herokuapp.com/
