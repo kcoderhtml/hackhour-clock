@@ -18,7 +18,6 @@ while True:
                      (int(minutesLeft) // 60000)) * 60 + 1
     print(timeToDisplay)
     if minutesLeft == "-1":
-        display.displayLED("0000", 0.5)
-        break
+        display.displayLED("0000", 60)
     display.displayLED(round(int(minutesLeft) / 60000),
                        timeToDisplay)
