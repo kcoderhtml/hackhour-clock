@@ -67,4 +67,7 @@ while True:
     # find the minutes left as hack hour gives the end time in unix timestamp
     minutesLeft = getHackHourTime()
     print(minutesLeft)
+    if minutesLeft == "-1":
+        display.displayLED("0000", 0.5)
+        break
     display.displayLED(minutesLeft, 3)
