@@ -70,4 +70,4 @@ while True:
     if minutesLeft == "-1":
         display.displayLED("0000", 0.5)
         break
-    display.displayLED(minutesLeft, 3)
+    display.displayLED(round(int(minutesLeft) / 60000), 3)
