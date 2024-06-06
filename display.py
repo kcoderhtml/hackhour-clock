@@ -1,4 +1,4 @@
-from machine import Pin, SPI, PWM
+from machine import Pin, SPI
 import time
 
 MOSI = 11
