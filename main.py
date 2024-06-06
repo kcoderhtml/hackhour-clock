@@ -14,8 +14,11 @@ while True:
     # get the hack hour from the server
     # find the minutes left as hack hour gives the end time in unix timestamp
     minutesLeft = getHackHourTime()
-    print(minutesLeft)
+    timeToDisplay = (int(minutesLeft) / 60000 -
+                     (int(minutesLeft) // 60000)) * 60 + 1
+    print(timeToDisplay)
     if minutesLeft == "-1":
         display.displayLED("0000", 0.5)
         break
-    display.displayLED(round(int(minutesLeft) / 60000), 3)
+    display.displayLED(round(int(minutesLeft) / 60000),
+                       timeToDisplay)
