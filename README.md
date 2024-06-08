@@ -7,7 +7,7 @@ SSID = "YOUR_WIFI_SSID"
 PASSWORD = "YOUR_WIFI_PASSWORD"
 ```
 
-then modify the main.py file to change the slack id to your slack id this should be on line 51:
+then modify the main.py file to change the slack id to your slack id this should be on line 7:
 
 ```python
  def getHackHourTime():
