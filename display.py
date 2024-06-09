@@ -123,7 +123,7 @@ def displayLED(displayNumber, displayTimer):
 
 
 def outputDisplay(displayNumber, displayTimer):
-    displayTimer = displayTimer * 110  # Convert timer to seconds
+    displayTimer = displayTimer * 1000 # Convert to milliseconds
     displayString = str(displayNumber)
 
     # Left Pad with blanks
@@ -141,7 +141,9 @@ def outputDisplay(displayNumber, displayTimer):
     decimalPosition = decimalPlace(displayString)
 
     LED = LED_8SEG()
-    while displayTimer > 0:
+    # see https://docs.micropython.org/en/latest/library/time.html for docs on ticks_ms()
+    startTime = time.ticks_ms()
+    while time.ticks_add(startTime, displayTimer) > time.ticks_ms():
         time.sleep(0.0005)
         if decimalPosition == 0:
             LED.write_cmd(UNITS, LED.SEG8[displayList[3]] | Dot)
@@ -163,7 +165,6 @@ def outputDisplay(displayNumber, displayTimer):
         else:
             LED.write_cmd(THOUSANDS, LED.SEG8[displayList[0]])
         time.sleep(0.0005)
-        displayTimer = displayTimer-1
 
     # Once finished blank out the fist left most digit
     # as it's the only one that sticks
