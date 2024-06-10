@@ -20,6 +20,7 @@ while True:
     secondsLeftInThisMinute = (minutesLeft - (minutesLeft // 1)) * 60 + 1
     print(f"{int(minutesLeft)}:{secondsLeftInThisMinute:02} remaining")
     if millisecondsLeft == "-1":
-        display.displayLED("0000", 60)
+        display.displayLED("00:00", 60)
     else:
-        display.displayLED(int(minutesLeft),  # floor the minutes left
+        display.displayLED(str(minutesLeft) + ":00",  # floor the minutes left
+                           secondsLeftInThisMinute)
